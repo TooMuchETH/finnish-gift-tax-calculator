@@ -1,0 +1,25 @@
+#Finnish Administration Gift Tax Calculator (Pre 31st December 2025)
+#Calculates gift tax for gifts from close relatives.
+
+gift = input("Value of Gift: €")
+gift = gift.replace(",", "")
+gift = gift.replace(" ", "")
+gift = float(gift)
+
+if gift >= 1000000:
+    tax = (142100 + (gift - 1000000) * 0.17)
+elif gift >= 200000:
+    tax = (22100 + (gift - 200000) * 0.15)
+elif gift >= 55000:
+    tax = (4700 + (gift - 55000) * 0.12)
+elif gift >= 25000:
+    tax = (1700 + (gift - 25000) * 0.10)
+elif gift >= 5000:
+    tax = (100 + (gift - 5000) * 0.08)
+else:
+    tax = 0
+
+if tax > 0:
+    print(f"Amount of tax: €{tax:,.2f}")
+else:
+    print("No tax needs to be paid.")
